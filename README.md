@@ -20,4 +20,4 @@ A lightweight PowerShell utility to automate the downloading, caching, and insta
 3. Run the script with no arguments to see the help menu, or use the `-Latest` flag to install the latest version immediately:
 
 ```powershell
-.\install_gearmulator.ps1 -Latest
+.\gm-install.ps1 -Latest
