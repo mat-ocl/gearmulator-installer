@@ -28,7 +28,7 @@ jobs:
         
     # Step 3: Upload the resulting .exe so you can download it
     - name: Upload Executable Artifact
-      uses: actions/actions-artifact@v4
+      uses: actions/upload-artifact@v4
       with:
         name: Compiled-PowerShell-App
         path: .\myprogram.exe
