@@ -1,0 +1,43 @@
+name: Compile PowerShell and Release
+
+on:
+  pull_request:
+    branches: [ "main" ] # Triggers to test the build on PRs targeting main
+  push:
+    tags:
+      - 'v*' # Triggers the full release when a tag is pushed
+  workflow_dispatch: # to trigger this manually
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    # Step 1: Check out your repository code
+    - name: Checkout Code
+      uses: actions/checkout@v7.0.0
+
+    # Step 2: Install PS2EXE and compile the script
+    - name: Compile Script to EXE
+      shell: powershell
+      run: |
+        Install-Module -Name ps2exe -RequiredVersion 1.0.13 -Force -SkipPublisherCheck -Scope CurrentUser
+        
+        ps2exe .\gm-install-gui.ps1 .\gm-manager.exe -Title "Gearmulator VST3 Manager" -Description "Automated Lifecycle Tool" -IconFile ".\icon\dsp56300.ico" -NoConsole
+        
+    # Step 3: Upload the resulting .exe so you can download it
+    - name: Upload Executable Artifact
+      uses: actions/upload-artifact@v7.0.1
+      with:
+        name: gm-manager
+        path: .\gm-manager.exe
+        retention-days: 7
+
+    # Step 4: Runs only when the workflow was triggered by a Git tag
+    - name: Create Release and Upload Asset
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v3.0.1
+      with:
+        files: .\gm-manager.exe
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
