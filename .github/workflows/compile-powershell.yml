@@ -1,0 +1,34 @@
+name: Compile PowerShell to EXE
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch: # Allows you to trigger this manually
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    # Step 1: Check out your repository code
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # Step 2: Install PS2EXE and compile the script
+    - name: Compile Script to EXE
+      shell: powershell
+      run: |
+        # Install PS2EXE module forcefully and quietly
+        Install-Module -Name ps2exe -RequiredVersion 1.0.13 -Force -SkipPublisherCheck -Scope CurrentUser
+        
+        # Compile your script (Replace 'myscript.ps1' and 'myprogram.exe' with your filenames)
+        ps2exe .\myscript.ps1 .\myprogram.exe -title "My PowerShell App" -description "Compiled via GitHub Actions"
+        
+    # Step 3: Upload the resulting .exe so you can download it
+    - name: Upload Executable Artifact
+      uses: actions/actions-artifact@v4
+      with:
+        name: Compiled-PowerShell-App
+        path: .\myprogram.exe
