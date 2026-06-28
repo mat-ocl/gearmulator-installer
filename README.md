@@ -13,11 +13,27 @@ A lightweight PowerShell utility to automate the downloading, caching, and insta
 * **CLI Tools:** Check your currently installed version, quickly open the VST3 folder, browse available GitHub releases, or wipe your cache.
 * **Uninstall:** Completely removes the gearmulator VST3 plugin files with a single command.
 
-## 🚀 Quick Start
+## 🚀 Ways to run it
 
+### 1. Binary finary -New feature
+1. Download binary (.exe) from releases.
+2. Run the `gm-manager.exe`
+
+### 2. Use the original CLI script
 1. Download the `gm-install.ps1` script to your preferred working directory.
 2. Open PowerShell.
-3. Run the script with no arguments to see the help menu, or use the `-Latest` flag to install the latest version immediately:
+3. Run the script with no arguments to see the help menu, or use the `-Latest` flag to install the latest version immediately.
 
 ```powershell
 .\gm-install.ps1 -Latest
+```
+
+### 3. Use the helper batch file
+1. Download `gm-install.ps1` script and `gm-install.bat` to your preferred working directory.
+2. Run `gm-install.bat` by double cliking on it. This will always install the latest versions. Easy peasy.
+
+### 4. Run the new Gui version from powershell
+1. Download the `gm-install-gui.ps1` script to your preferred working directory.
+2. Open PowerShell.
+3. Run the script and the Gui will pop up.
+
