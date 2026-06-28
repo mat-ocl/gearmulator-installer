@@ -2,8 +2,9 @@
 
 A lightweight PowerShell utility to automate the downloading, caching, and installation of the [DSP56300 Gearmulator](https://github.com/dsp56300/gearmulator) VST3 plugins on Windows. 
 
-
 ---
+
+![gm-manager](manager_small.png "The new Gui")
 
 ## ✨ Features
 
@@ -14,10 +15,12 @@ A lightweight PowerShell utility to automate the downloading, caching, and insta
 * **Uninstall:** Completely removes the gearmulator VST3 plugin files with a single command.
 
 ## 🚀 Ways to run it
+Always easy 1-2-3
 
-### 1. Binary finary -New feature
-1. Download binary (.exe) from releases.
+### 1. Binary finary -New executale binary with Gui
+1. Download binary (.exe) from releases to your preferred working directory.
 2. Run the `gm-manager.exe`
+3. Follow the on screen goodness.
 
 ### 2. Use the original CLI script
 1. Download the `gm-install.ps1` script to your preferred working directory.
@@ -30,9 +33,10 @@ A lightweight PowerShell utility to automate the downloading, caching, and insta
 
 ### 3. Use the helper batch file
 1. Download `gm-install.ps1` script and `gm-install.bat` to your preferred working directory.
-2. Run `gm-install.bat` by double cliking on it. This will always install the latest versions. Easy peasy.
+2. Run `gm-install.bat` by double cliking on it. This will always install the latest versions. 
+3. Easy peasy.
 
-### 4. Run the new Gui version from powershell
+### 4. Run the new Gui version from PowerShell
 1. Download the `gm-install-gui.ps1` script to your preferred working directory.
 2. Open PowerShell.
 3. Run the script and the Gui will pop up.
