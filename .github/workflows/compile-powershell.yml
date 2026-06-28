@@ -31,6 +31,7 @@ jobs:
       with:
         name: gm-manager
         path: .\gm-manager.exe
+        retention-days: 7
 
     # Step 4: Runs only when the workflow was triggered by a Git tag
     - name: Create Release and Upload Asset
